@@ -33,26 +33,28 @@ void read_val(T& v)
 
 int main()
 {
-    S<int> si;
-    cout << "Int: "; read_val(si.get_non_const());
-    cout << get(si) << "\n";
+    S<int> var1;
+    cout << "Int: "; 
+    read_val(var1.get_non_const());
+    cout << get(var1) << endl;
 
-    S<char> sc;
-    cout << "Char: "; read_val(sc.get_non_const());
-    cout << get(sc) << "\n";
+    S<char> var2;
+    cout << "Char: "; 
+    read_val(var2.get_non_const());
+    cout << get(var2) << endl;
     
-    S<double> sd;
-    cout << "Double: "; read_val(sd.get_non_const());
-    cout << sd.get() << "\n";
+    S<double> var3;
+    cout << "Double: "; 
+    read_val(var3.get_non_const());
+    cout << var3.get() << endl;
 
-    S<string> ss;
-    cout << "String: "; read_val(ss.get_non_const());
-    cout << ss.get() << "\n";
+    S<string> var4;
+    cout << "String: "; 
+    read_val(var4.get_non_const());
+    cout << var4.get() << endl;
 
-    S<vector<int>> svi(vector<int>(5,15));
-    for(int i: get(svi))
-        cout << i << ";";
-    cout << "\n";
+    S<vector<int>> my_vector(vector<int>(5,15));
+    for(int i: get(my_vector)){cout << i << endl;}
 
     return 0;
 }
