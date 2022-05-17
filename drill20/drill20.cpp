@@ -15,65 +15,72 @@ Iter2 my_copy(Iter1 f1, Iter1 e1, Iter2 f2)
 
 int main()
 {
-    int array[10] = {0,1,2,3,4,5,6,7,8,9};
+    int my_array[10] = {0,1,2,3,4,5,6,7,8,9};
+    cout << "Array 1: " << endl;
+    for(int i = 0; i < 10; i++){cout << my_array[i] << " ";}
+    cout << endl;
 
-    vector<int> v{0,1,2,3,4,5,6,7,8,9};
+    vector<int> my_vector{0,1,2,3,4,5,6,7,8,9};
+    cout << "Vector 1: " << endl;
+    for(int& i : my_vector){cout << i << " ";}
+    cout << endl;
 
-    list<int> l{0,1,2,3,4,5,6,7,8,9};
+    list<int> my_list{0,1,2,3,4,5,6,7,8,9};
+    cout << "List 1: " << endl;
+    for(int& i : my_list){cout << i << " ";}
+    cout << endl;
 
+    cout << endl;
+    cout << "--------------------" << endl;
+    cout << endl;
     
-    int array2[10];
+    int my_array2[10];
 
-    copy(begin(array), end(array), begin(array2));
+    copy(begin(my_array), end(my_array), begin(my_array2));
 
-    vector<int> v2 = v;
+    vector<int> my_vector2 = my_vector;
 
-    list<int> l2 = l;
+    list<int> my_list2 = my_list;
 
-    for(int& i : array)
-        i += 2;
+    for(int& i : my_array){i += 2;}
 
-    for(int& i : v)
-        i += 3;
+    for(int& i : my_vector){i += 3;}
     
-    for(int& i : l)
-        i += 5;
+    for(int& i : my_list){i += 5;}
 
-    cout << "Array 1: " << "\n";
-    for(int i = 0; i < 10; i++)
-        cout << array[i];
-    cout << "\n";
-    my_copy(begin(array), end(array), begin(v2));
+    cout << "Array 1(+2): " << endl;
+    for(int i = 0; i < 10; i++){cout << my_array[i] << " ";}
+    cout << endl;
+    my_copy(begin(my_array), end(my_array), begin(my_vector2));
     
-    cout << "Copied vector 2: " << "\n";
-    for(int& i : v2)
+    cout << "Copied vector 2: " << endl;
+    for(int& i : my_vector2){cout << i << " ";}
+    cout << endl;
+
+    cout << "List 1: " << endl;
+    for(int& i : my_list)
         cout << i;
-    cout << "\n";
+    cout << endl;
 
-    cout << "List 1: " << "\n";
-    for(int& i : l)
-        cout << i;
-    cout << "\n";
-
-    my_copy(begin(l), end(l), begin(array2));
-    cout << "Copied array 2: " << "\n";
+    my_copy(begin(my_list), end(my_list), begin(my_array2));
+    cout << "Copied array 2: " << endl;
     for(int i = 0; i < 10; i++)
-        cout << array2[i];
-    cout << "\n";
+        cout << my_array2[i];
+    cout << endl;
 
-    auto found = find(begin(v), end(v), 3);
+    auto found = find(begin(my_vector), end(my_vector), 3);
 
-    if (found != end(v))
-        cout << "3 is found at position:" << distance(begin(v), found) << "\n";
+    if (found != end(my_vector))
+        cout << "3 is found at position:" << distance(begin(my_vector), found) << endl;
     else
-        cout << "3 not found in vector." << "\n";
+        cout << "3 not found in vector." << endl;
     
-    auto found2 = find(begin(l), end(l), 27);
+    auto found2 = find(begin(my_list), end(my_list), 27);
 
-    if (found2 != end(l))
-        cout << "27 is found at position:" << distance(begin(l), found2) << "\n";
+    if (found2 != end(my_list))
+        cout << "27 is found at position:" << distance(begin(my_list), found2) << endl;
     else
-        cout << "27 not found in list." << "\n";
+        cout << "27 not found in list." << endl;
 
     return 0;
 }
